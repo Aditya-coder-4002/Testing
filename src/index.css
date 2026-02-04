@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  /* Ensure the body is dark but doesn't block the fixed experience */
+  background-color: #050505;
+  @apply text-white;
+}
+
+.section-container {
+  /* Ensure sections are fully transparent to show the 3D scene */
+  @apply relative w-full h-screen flex flex-col items-center justify-center p-8 bg-transparent;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 12px;
+  height: 0.9em;
+  background-color: #646cff;
+  margin-left: 4px;
+  line-height: 1;
+  vertical-align: middle;
+  animation: blink 0.8s step-end infinite;
+}
+
+/* On mobile, make the cursor a bit smaller */
+@media (max-width: 768px) {
+  .cursor {
+    width: 8px;
+  }
+}
